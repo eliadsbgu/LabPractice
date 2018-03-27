@@ -31,7 +31,13 @@ namespace DAL
 
         public List<Backend.Product> ProductNameQuery(string name)
         {
-            throw new NotImplementedException();
+            //perform query
+            var results = from Product p in DB
+                          where p.Name == name
+                          select p;
+            //return results
+            return results.ToList();
+
         }
 
         public List<Backend.Product> GetAllProducts()
